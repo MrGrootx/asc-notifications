@@ -1,5 +1,5 @@
 <template>
-    <div :class="notificationPositionClass">
+    <div :class="notificationPositionClass" class="select-none">
         <transition-group :name="transitionNotificationName" tag="div">
             <div v-for="(notification, index) in reversedNotifications" :key="notification.id">
                 <RebarNotify :type="notification.type" :message="notification.message" />
@@ -23,7 +23,7 @@ type RebarNotifyProps = Pick<RebarNotification, 'type' | 'message'>;
 
 defineProps<RebarNotifyProps>();
 
-let debugMode = true; // Set to true for debugging
+let debugMode = false; // Set to true for debugging
 
 interface VueNotification extends RebarNotification {
     id?: number;
