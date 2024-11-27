@@ -25,8 +25,6 @@ defineProps({
     secondsAgo: Number,
 });
 
-let debugMode = false; // Set to true for debugging
-
 interface VueNotification extends Notification {
     id?: number;
     progress?: number;
@@ -107,7 +105,7 @@ const updateProgress = () => {
 };
 
 const addDebugNotification = () => {
-    if (debugMode) {
+    if (ASCNotifications.debug) {
         const debugNotification: VueNotification = {
             title: 'Debug Notification',
             icon: '🤣',

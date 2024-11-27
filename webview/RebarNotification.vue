@@ -23,8 +23,6 @@ type RebarNotifyProps = Pick<RebarNotification, 'type' | 'message'>;
 
 defineProps<RebarNotifyProps>();
 
-let debugMode = false; // Set to true for debugging
-
 interface VueNotification extends RebarNotification {
     id?: number;
     progress?: number;
@@ -105,7 +103,7 @@ const updateProgress = () => {
 };
 
 const addDebugNotification = () => {
-    if (debugMode) {
+    if (ASCNotifications.debug) {
         const debugNotification: VueNotification = {
             type: 'SUCCESS',
             message: 'You have sent 420€ to Tommy!',
